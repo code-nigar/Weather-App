@@ -80,6 +80,14 @@ form{
 ::placeholder{
     color: inherit;
 }
+@media (min-width: 850px) {
+    #main-heading{
+        font-size: 1.75rem;
+    }
+    #sub-heading{
+        font-size: 1rem;
+    }
+}
 
 /* @media (max-width: 500px) {
     #main-heading{
