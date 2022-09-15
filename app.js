@@ -73,6 +73,14 @@ const getBackground = (img_code) => {
 };
 
 const showWeather = (data) => {
+  if (data.cod == 404 || data.cod == 400){
+    swal({
+    icon:"error",
+    title:"Error: "+data.cod,
+    text: data.message+"\nTry again",
+    timer: 2000
+    });
+  }
   let temp = Math.round(data.main.temp);
   result_div.innerHTML = `
     <h2 id="city"><i class="fa-solid fa-location-dot"></i> ${ data.name}</h2>
