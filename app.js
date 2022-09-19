@@ -84,9 +84,33 @@ const showWeather = (data) => {
   let temp = Math.round(data.main.temp);
   result_div.innerHTML = `
     <h2 id="city"><i class="fa-solid fa-location-dot"></i> ${ data.name}</h2>
-    <div>
-    <div id="temp">${temp}&#176 C</div>
-    <div id="condition">${data.weather[0].main}</div>
+    <div class="col">
+        <div id="temp">${temp}&#176 C</div>
+        <div id="min-max-row" class="detail-item row">
+            <div><img class="icon-sm" src="https://img.icons8.com/ios-glyphs/30/000000/thermometer.png"/>Feels like ${data.main.feels_like}&#176 C</div>
+      
+        </div>
+        <div id="condition">${data.weather[0].main}</div>
+    </div>
+    <div class="row" id="bg-detail">
+        <div class="row" id="details">
+            <div id="pressure" class="row detail-item">
+                <img  class="icon" src="https://img.icons8.com/ios-filled/50/000000/windsock.png"/>
+                <p>${data.wind.speed } kmph</p>
+            </div>
+        </div>
+        <div class="row" id="details">
+            <div id="humidity" class="row detail-item">
+                <img class="icon" src="https://img.icons8.com/ios/50/000000/humidity.png"/>
+                <p>${data.main.humidity} %</p>
+            </div>
+        </div>
+        <div class="row" id="details">
+            <div id="sea-level" class="row detail-item">
+                <img class="icon" src="https://img.icons8.com/ios/50/000000/sea-waves.png"/>
+                <p>${ data.main.pressure} hpa</p>
+            </div>
+        </div>
     </div>
     `;
     

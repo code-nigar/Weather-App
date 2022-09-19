@@ -12,6 +12,7 @@
 #main{
     margin-top: 10vh;
     padding: 0px 25px;
+    height: 100vh;
 }
 .col{
     display: flex;
@@ -19,6 +20,12 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 #main-heading{
     margin: 5px 0px 0px 0px;
@@ -38,10 +45,10 @@ form{
   padding: 15px 0 0;
   margin-top: 10px;
   width: 50%;
-  display: flex;
+  display: flex; 
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: row; 
   flex-wrap: nowrap;
 }
 #city-name{
@@ -72,7 +79,7 @@ form{
 #city{
     padding: 0.5rem 0;
     font-family: 'Sora', sans-serif;
-    font-weight: 300;
+    font-weight: 600;
     font-size: medium;
 }
 #temp{
@@ -80,9 +87,49 @@ form{
     font-weight: 600;
     font-size: 3rem;
 }
+#condition{
+    font-weight: 600;
+}
 ::placeholder{
     color: inherit;
 }
+
+#bg-detail{
+    min-width: 330px;
+    max-width: 800px;
+    flex-wrap: wrap;
+}
+#details{
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.3px);
+    -webkit-backdrop-filter: blur(10.3px);
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    min-width: 100px;
+    max-width: 200px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+.detail-item{
+    margin: 0.25rem;
+    font-size: small;
+}
+#min-max-row{
+    width: 160px;
+    font-size: small;
+}
+.icon{
+    width: 1.1rem;
+    object-fit: contain;
+    padding-right: 8px;
+}
+.icon-sm{
+    width: 0.75rem;
+    object-fit: contain;
+}
+
+
 @media (min-width: 850px) {
     #main-heading{
         font-size: 1.75rem;
