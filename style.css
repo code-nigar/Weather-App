@@ -3,7 +3,6 @@
     font-family: 'Sora', sans-serif;
 }
 #body{
-    background-image: url("images/clear-d.jpg");
     background-repeat: no-repeat;
     background-size:cover;
     background-position: top;
@@ -13,6 +12,8 @@
     margin-top: 10vh;
     padding: 0px 25px;
     height: 100vh;
+    position: relative;
+    z-index: 1000;
 }
 .col{
     display: flex;
@@ -56,7 +57,7 @@ form{
     border: 0;
     border-bottom: 2px solid black;
     outline: 0;
-    color: black;
+    color: inherit;
     padding: 7px;
     background: transparent;
     transition: border-color 0.2s;
@@ -95,11 +96,12 @@ form{
 }
 
 #bg-detail{
-    min-width: 330px;
-    max-width: 800px;
+    /* min-width: 330px;
+    max-width: 800px; */
     flex-wrap: wrap;
+    width: 320px;
 }
-#details{
+.details{
     background: rgba(255, 255, 255, 0.22);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -138,7 +140,29 @@ form{
         font-size: 1rem;
     }
 }
-
+#myVideo {
+    /* position: abs;
+    right: 0;
+    bottom: 0; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    object-fit: cover;
+    opacity: 0.8;
+    z-index: -2;
+}
+#overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background: rgba(128, 128, 128, 0.25);
+    mix-blend-mode:soft-light;
+    z-index: -1;
+}
 /* @media (max-width: 500px) {
     #main-heading{
         font-size: 1rem;

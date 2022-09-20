@@ -9,8 +9,8 @@ const getWeather = async (city) => {
   const data = await response.json();
   console.log(data);
   showWeather(data);
+  document.getElementById("myVideo").style.opacity="0";
   getBackground(data.weather[0].icon);
-  // console.log(data.weather[0].icon);
 };
 
 const getBackground = (img_code) => {
@@ -67,8 +67,10 @@ const getBackground = (img_code) => {
   //foreground color switch
   if(img_code[img_code.length-1] == 'n'){
     document.getElementById("body").style.color = "white";
+    document.getElementById("overlay").style.background = "rgba(0,0,0,0.5)"
   }else{
     document.getElementById("body").style.color = "black";
+    document.getElementById("overlay").style.background = "rgba(255,255,255,0.5)"
   }
 };
 
@@ -82,30 +84,31 @@ const showWeather = (data) => {
     });
   }
   let temp = Math.round(data.main.temp);
+  let feels = Math.round(data.main.feels_like);
   result_div.innerHTML = `
-    <h2 id="city"><i class="fa-solid fa-location-dot"></i> ${ data.name}</h2>
+    <h2 id="city"><i class="fa-solid fa-location-dot" style="color:inherit;"></i> ${ data.name}</h2>
     <div class="col">
         <div id="temp">${temp}&#176 C</div>
         <div id="min-max-row" class="detail-item row">
-            <div><img class="icon-sm" src="https://img.icons8.com/ios-glyphs/30/000000/thermometer.png"/>Feels like ${data.main.feels_like}&#176 C</div>
+            <div><img class="icon-sm" src="https://img.icons8.com/ios-glyphs/30/000000/thermometer.png"/>Feels like ${feels}&#176 C</div>
       
         </div>
         <div id="condition">${data.weather[0].main}</div>
     </div>
     <div class="row" id="bg-detail">
-        <div class="row" id="details">
+        <div class="row details">
             <div id="pressure" class="row detail-item">
                 <img  class="icon" src="https://img.icons8.com/ios-filled/50/000000/windsock.png"/>
-                <p>${data.wind.speed } kmph</p>
+                <p>${data.wind.speed } km/h</p>
             </div>
         </div>
-        <div class="row" id="details">
+        <div class="row details">
             <div id="humidity" class="row detail-item">
                 <img class="icon" src="https://img.icons8.com/ios/50/000000/humidity.png"/>
                 <p>${data.main.humidity} %</p>
             </div>
         </div>
-        <div class="row" id="details">
+        <div class="row details">
             <div id="sea-level" class="row detail-item">
                 <img class="icon" src="https://img.icons8.com/ios/50/000000/sea-waves.png"/>
                 <p>${ data.main.pressure} hpa</p>
